@@ -1,0 +1,23 @@
+.card-container {
+    background-color:#F0F8FF;
+    margin-top:20px;
+    width:100%;
+    display:flex;
+}
+
+.card-container img {
+    width:30%;
+}
+
+.card-container h3 {
+    font-style:italic;
+    color:slategray;
+}
+
+.information {
+    padding:20px;
+}
+
+.information > * {
+    margin-bottom:10px;
+}
