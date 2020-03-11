@@ -25,6 +25,25 @@ body {
   background-color:#ADD8E6;  
 }
 
+button {
+  padding:5px;
+  font-size:inherit;
+  width:100px;
+  border-radius:5px;
+  background-color:#4682B4;
+  border:1px solid #ADD8E6;
+  color:white;
+}
+
+button:hover {
+  background-color:#ADD8E6;
+  cursor:pointer;
+}
+
+button:focus {
+  outline:none;
+}
+
 #root {
   display:flex;
   justify-content:center;

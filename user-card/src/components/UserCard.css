@@ -3,6 +3,18 @@
     margin-top:20px;
     width:100%;
     display:flex;
+    border-radius:5px;
+    -webkit-box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.75);
+}
+
+.card-container:last-child {
+    margin-bottom:20px;
+}
+
+.main {
+    background-color:#FFEFD5;
 }
 
 .card-container img {

@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
+import UserForm from './components/UserForm';
 import UserList from './components/UserList';
 import axios from 'axios';
 import './App.css';
 
 export default class App extends Component {
   state = {
-    userData: []
+    userData: [],
+    displayUsers: false,
+    userFound: true,
   }
 
-  componentDidMount() {
-    this.getData("AlexanderKarren");
+  setUsername = value => {
+    this.getData(value);
+    this.setState({displayUsers: true});
   }
 
   getData = username => {
     axios.get(`https://api.github.com/users/${username}`)
     .then(response => {
+      console.log(response)
       let userList = [response.data];
+      this.setState({userFound: true});
       axios.get(`https://api.github.com/users/${username}/followers`)
       .then(followersRes => {
         followersRes.data.map(follower => {
@@ -35,14 +41,15 @@ export default class App extends Component {
     })
     .catch(error => {
       console.log(error);
+      this.setState({userFound: false})
     })
   }
 
   render() {
-    console.log(this.state.userData)
     return (
       <div className="app-container">
-        <h1><i class="fab fa-github"></i>Github User Card</h1>
+        <h1><i className="fab fa-github"></i>Github User Card</h1>
+        <UserForm setUsername={this.setUsername} userFound={this.state.userFound}/>
         <UserList userData={this.state.userData}/>
       </div>
     )

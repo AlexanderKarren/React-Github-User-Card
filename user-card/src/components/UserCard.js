@@ -14,7 +14,7 @@ export default class UserCard extends Component {
 
     render() {
         return (
-            <div className="card-container">
+            <div className={this.props.main}>
                 <img src={this.props.user.avatar_url} alt="user" />
                 <div className="information">
                     <h2>{this.state.userHasName ? `${this.props.user.name}` : `${this.props.user.login}`}</h2>

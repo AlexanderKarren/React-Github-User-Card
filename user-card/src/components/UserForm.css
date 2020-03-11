@@ -1,0 +1,29 @@
+.form-container {
+    background-color:#F0F8FF;
+    margin:10px;
+    padding:20px;
+    border-radius:5px;
+}
+
+.form-container form {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.form-container form > * {
+    margin-top:10px;
+}
+
+.form-container input {
+    width:100%;
+    font-size:inherit;
+    padding:5px;
+    border-radius:5px;
+    border:1px solid #F5F5F5;
+    outline:none;
+}
+
+.error {
+    color:red;
+}
