@@ -26,7 +26,7 @@ export default class UserForm extends Component {
                     <button type="submit">Go</button>
                     <div style={this.props.userFound ? {opacity: 0} : {opacity: 100}} className="error">Couldn't fetch data</div>
                 </form>
-                <img src={`http://ghchart.rshah.org/${this.state.username}`} alt={`${this.state.username}'s github chart`} />
+                <img style={this.props.displayGraph ? {display: "block"} : {display: "none"}} src={`http://ghchart.rshah.org/${this.state.username}`} alt={`${this.state.username}'s github chart`} />
             </div>
         )
     }

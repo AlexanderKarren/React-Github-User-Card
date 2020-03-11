@@ -7,13 +7,12 @@ import './App.css';
 export default class App extends Component {
   state = {
     userData: [],
-    displayUsers: false,
+    displayGraph: false,
     userFound: true,
   }
 
   setUsername = value => {
     this.getData(value);
-    this.setState({displayUsers: true});
   }
 
   getData = username => {
@@ -22,6 +21,7 @@ export default class App extends Component {
       console.log(response)
       let userList = [response.data];
       this.setState({userFound: true});
+      this.setState({displayGraph: true});
       axios.get(`https://api.github.com/users/${username}/followers`)
       .then(followersRes => {
         followersRes.data.map(follower => {
@@ -42,6 +42,7 @@ export default class App extends Component {
     .catch(error => {
       console.log(error);
       this.setState({userFound: false})
+      this.setState({displayGraph: false})
     })
   }
 
@@ -49,7 +50,7 @@ export default class App extends Component {
     return (
       <div className="app-container">
         <h1><i className="fab fa-github"></i>Github User Card</h1>
-        <UserForm setUsername={this.setUsername} userFound={this.state.userFound}/>
+        <UserForm displayGraph={this.state.displayGraph} setUsername={this.setUsername} userFound={this.state.userFound}/>
         <UserList userData={this.state.userData}/>
       </div>
     )
